@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UA MUSEUMS</title>
+  <link rel="stylesheet" type="text/css" href="styles/inline.css">
+  
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="header__title">UA MUSEUMS</h1>
+    <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
+    <button id="butAdd" class="headerButton" aria-label="Add"></button>
+  </header>
+
+  <main class="main">
+
+    <div class="card cardTemplate weather-forecast">
+     <h2 class="main_category">Основные категории</h2>
+    <div class="category">
+      <div class="image_block first_categ"></div>
+      <div class="description_block center">
+      <h3>Категория 1</h3>
+      <p>Добрый вечер дядя Толя (краткое описание)</p>
+      </div>
+    </div>
+     <div class="category">
+      <div class="image_block second_categ"></div>
+      <div class="description_block center">
+      <h3>Категория 2</h3>
+       <p>Добрый вечер дядя Вася (краткое описание)</p>
+      </div>
+    </div>
+     <div class="category">
+      <div class="image_block third_categ"></div>
+      <div class="description_block center">
+        <h3>Категория 3</h3>
+         <p>Добрый вечер тетя Мотя (краткое описание)</p>
+      </div>
+    </div>
+
+    </div>
+  </main>
+
+  <div class="dialog-container">
+    <div class="dialog">
+      <div class="dialog-title">Add new city</div>
+      <div class="dialog-body">
+        <select id="selectCityToAdd">
+          <!-- Values map to Yahoo Weather API Where On Earth Identifiers (WOEIDs).
+               https://developer.yahoo.com/weather/documentation.html#req -->
+          <option value="2357536">Austin, TX</option>
+          <option value="2367105">Boston, MA</option>
+          <option value="2379574">Chicago, IL</option>
+          <option value="2459115">New York, NY</option>
+          <option value="2475687">Portland, OR</option>
+          <option value="2487956">San Francisco, CA</option>
+          <option value="2490383">Seattle, WA</option>
+        </select>
+      </div>
+      <div class="dialog-buttons">
+        <button id="butAddCity" class="button">Add</button>
+        <button id="butAddCancel" class="button">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+<!--   <div class="loader">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div> -->
+
+  <!-- Uncomment the line below when ready to test with fake data -->
+<!--   <script src="scripts/app.js" async></script>
+ -->
+</body>
+</html>
