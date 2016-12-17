@@ -65,8 +65,21 @@ body {
         border-radius: 4px;
         background-color: rgb(121, 85, 72);
         color: #fff;
-        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
-        margin-bottom: 25px;
+        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.24), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+        margin-bottom: 15px;
+        -webkit-transition: all 400ms ease-in-out;
+        -moz-transition: all 400ms ease-in-out;
+        -o-transition: all 400ms ease-in-out;
+        transition: all 400ms ease-in-out;
+  }
+  .category:focus, .category:hover, .category:active{
+    box-shadow:none;
+    cursor: pointer;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+    outline: none;
   }
   .first_categ{
       background-image: url("http://www.kinder.mksat.net/inform_i_bd/goroda_muzei/5_chernovci/img/1b.jpg");
@@ -81,9 +94,30 @@ background-image: url("http://podrobnosti.ua/media/pictures/2016/5/18/thumbs/740
     text-align: center;
   }
   .main_category{
-    margin: 10px 0px;
+    margin: 8px 0px;
     font-weight: 400;
+    color: #000;
   }
+  .main_picture{
+    display: block;
+    min-height: 215px;
+    width: 100%;
+    background-image: url("http://www.perekop.ru/wp-content/uploads/antique-scythian-gold-jewelry.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-bottom: 4px solid #795548;
+  }
+
+.main_picture {}
+
+.main_title{
+  color: white;
+  font-weight: 300;
+  margin: 0px;
+  padding: 45px 20px;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+}
 
   .image_block{
     height: 100%;
@@ -93,6 +127,7 @@ background-image: url("http://podrobnosti.ua/media/pictures/2016/5/18/thumbs/740
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    border-radius: inherit;
   }
   .description_block{
     display: block;
@@ -105,6 +140,14 @@ background-image: url("http://podrobnosti.ua/media/pictures/2016/5/18/thumbs/740
   }
   .description_block>p{
         margin: 10px 0px;
+  }
+
+  .darker_background{
+    text-align: center;
+    display: block;
+    min-height: 215px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.45);
   }
 
 
