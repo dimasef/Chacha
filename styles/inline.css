@@ -58,6 +58,46 @@ body {
           align-content: stretch;
   background: #ececec; }
 
+  .star-rating{
+  font-size: 0;
+}
+.star-rating__wrap{
+  display: inline-block;
+  font-size: 1rem;
+}
+.star-rating__wrap:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.star-rating__ico{
+  float: right;
+  padding-left: 2px;
+  cursor: pointer;
+  color: #FFEB3B;
+}
+.star-rating__ico:last-child{
+  padding-left: 0;
+}
+.star-rating__input{
+  display: none;
+}
+.star-rating__ico:hover:before,
+.star-rating__ico:hover ~ .star-rating__ico:before,
+.star-rating__input:checked ~ .star-rating__ico:before
+{
+  content: "\f005";
+}
+
+.card_museams {
+    min-height: 200px;
+    padding: 10px;
+    position: relative;
+    box-sizing: border-box;
+    background: #fff;
+    background-position: center center;
+}
+
   .category{
         display: block;
         width: 100%;
@@ -140,7 +180,16 @@ background-image: url("http://podrobnosti.ua/media/pictures/2016/5/18/thumbs/740
     width: 60%;
     float: left;
   }
+  .description_block_museums{
+    display: block;
+    height: 100%;
+    width: 70%;
+    float: left;
+  }
   .description_block>h3{
+    margin: 5px 0px;
+  }
+  .description_block_museums>h4{
     margin: 5px 0px;
   }
   .description_block>p{
@@ -343,17 +392,43 @@ background-image: url("http://podrobnosti.ua/media/pictures/2016/5/18/thumbs/740
   float: right; }
 
 .card {
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
+
   min-height: 276px;
   padding: 16px;
   position: relative;
   box-sizing: border-box;
   background: #fff;
-  /* background-image: url("http://www.mvestnik.ru/mvfoto/2014/09/09/%D0%9C%D1%83%D0%B7%D0%B5%D0%B9.jpg"); */ */
-  background-position: center center;
   background-position: center center;
   }
+
+  .list_museums{
+    display: block;
+  }
+  .image_block_museums{
+    height: 100%;
+    width: 30%;
+    display: block;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: inherit;
+  }
+  .museums {
+    display: block;
+    width: 100%;
+    height: 100px;
+    border-radius: 4px;
+    background-color: rgb(121, 85, 72);
+    color: #fff;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.24), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    margin-top: 10px;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+}
 
 .weather-forecast .location {
   font-size: 1.75em; }

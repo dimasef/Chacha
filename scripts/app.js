@@ -16,6 +16,8 @@
 (function() {
   'use strict';
 
+  
+
   var app = {
     isLoading: true,
     visibleCards: {},
