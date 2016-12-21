@@ -203,6 +203,25 @@
       $('#listHistory').show();
       $('#main_page').hide();
     });
+
+//parsing dimon api and output set of catrgory;
+    $.ajax({
+      url: 'https://museapp.herokuapp.com/api/v1/categories',
+      dataType: 'json',
+      type: 'get',
+      cache: false,
+      success: function(data){
+        $(data).each(function(index, value){
+          var name = 'Название';
+          var oldHtml = $('#category').html();
+          var category = $('#category').html('<div class="category"><div class="image_block" '+
+            'style="background: url('+value.photo_url+');'+
+            'background-size: cover;background-position: center center;"></div>'+
+            '<div class="description_block center" id="history"> <h3>'+ 
+             name +'</h3> <p class="fs_12">' + value.short_description + '</p></div></div>' + oldHtml);
+        });
+      }
+    });
   });
 
 
