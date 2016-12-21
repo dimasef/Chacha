@@ -402,7 +402,7 @@ background-image: url("http://podrobnosti.ua/media/pictures/2016/5/18/thumbs/740
   }
 
   .list_museums{
-    display: block;
+    display: none;
   }
   .image_block_museums{
     height: 100%;
