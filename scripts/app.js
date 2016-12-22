@@ -209,6 +209,13 @@
 			});
 		  }
 		});
+
+     $('.card').append('<input type="submit" class="btn" id="btnHistory" value="Назад">');
+     $(document).on('click', '#btnHistory', function(){
+        location.reload();
+        $('#btnHistory').remove();
+
+     });
 	
 		$('#categoryContainer').addClass('hidden');
 		$('#museumsListHistory').removeClass('hidden');
@@ -229,6 +236,13 @@
 			});
 		  }
 		});
+
+     $('.card').append('<input type="submit" class="btn" id="btnArt" value="Назад">');
+     $(document).on('click', '#btnArt', function(){
+        location.reload();
+        $('#btnArt').remove();
+
+     });
 	
 		$('#categoryContainer').addClass('hidden');
 		$('#museumsListArt').removeClass('hidden');
@@ -249,6 +263,14 @@
 			});
 		  }
 		});
+
+     $('.card').append('<input type="submit" class="btn" id="btnTechniq" value="Назад">');
+
+     $(document).on('click', '#btnTechniq', function(){
+        location.reload();
+        $('#btnTechniq').remove();
+
+     });
 		
 		$('#categoryContainer').addClass('hidden');
 		$('#museumsListTechniq').removeClass('hidden');
