@@ -60,8 +60,6 @@ body {
 
 
 .card_museams {
-    min-height: 200px;
-    padding: 10px;
     position: relative;
     box-sizing: border-box;
     background: #fff;
@@ -371,7 +369,7 @@ background-image: url("http://podrobnosti.ua/media/pictures/2016/5/18/thumbs/740
   background-position: center center;
   }
 
-  .list_museums{
+  .hidden{
     display: none;
   }
   .image_block_museums{

@@ -1,22 +1,6 @@
-// Copyright 2016 Google Inc.
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//      http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 
 (function() {
   'use strict';
-
-
 
   var app = {
     isLoading: true,
@@ -29,12 +13,6 @@
     daysOfWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   };
 
-
-  /*****************************************************************************
-   *
-   * Event listeners for UI elements
-   *
-   ****************************************************************************/
 
   document.getElementById('butRefresh').addEventListener('click', function() {
     // Refresh all of the forecasts
@@ -62,13 +40,6 @@
     // Close the add new city dialog
     app.toggleAddDialog(false);
   });
-
-
-  /*****************************************************************************
-   *
-   * Methods to update/refresh the UI
-   *
-   ****************************************************************************/
 
   // Toggles the visibility of the add new city dialog.
   app.toggleAddDialog = function(visible) {
@@ -149,20 +120,6 @@
   };
 
 
-  /*****************************************************************************
-   *
-   * Methods for dealing with the model
-   *
-   ****************************************************************************/
-
-  /*
-   * Gets a forecast for a specific city and updates the card with the data.
-   * getForecast() first checks if the weather data is in the cache. If so,
-   * then it gets that data and populates the card with the cached data.
-   * Then, getForecast() goes to the network for fresh data. If the network
-   * request goes through, then the card gets updated a second time with the
-   * freshest data.
-   */
   app.getForecast = function(key, label) {
     var statement = 'select * from weather.forecast where woeid=' + key;
     var url = 'https://query.yahooapis.com/v1/public/yql?format=json&q=' +
@@ -198,44 +155,95 @@
     });
   };
 
+  
   $(document).ready(function(){ 
-    $('#history').click(function(){
-      $('#listHistory').show();
-      $('#main_page').hide();
-    });
-
-//parsing dimon api and output set of catrgory;
-    $.ajax({
-      url: 'https://museapp.herokuapp.com/api/v1/categories',
-      dataType: 'json',
-      type: 'get',
-      cache: false,
-      success: function(data){
-        $(data).each(function(index, value){
-          var name = 'Название';
-          var oldHtml = $('#category').html();
-          var category = $('#category').html('<div class="category"><div class="image_block" '+
-            'style="background: url('+value.photo_url+');'+
-            'background-size: cover;background-position: center center;"></div>'+
-            '<div class="description_block center" id="history"> <h3>'+ 
-             name +'</h3> <p class="fs_12">' + value.short_description + '</p></div></div>' + oldHtml);
-        });
-      }
-    });
+  
+	initStartPage();
+  
   });
 
+  function initStartPage(){
+	  //parsing dimon api and output set of catrgory;
+		$.ajax({
+		  url: 'https://museapp.herokuapp.com/api/v1/categories',
+		  dataType: 'json',
+		  type: 'get',
+		  cache: false,
+		  success: function(data){
+			$(data).each(function(index, value){
+			  var name = value.name;
+			  var oldHtml = $('#category').html();
+			  var category = $('#category').html('<div class="category" id="category_'+ value.id +'"><div id="image_block_'+ value.id +'"class="image_block" '+
+				'style="background: url('+value.photo_url+');'+
+				'background-size: cover;background-position: center center;"></div>'+
+				'<div class="description_block center"> <h3>'+ 
+				 name +'</h3> <p class="fs_12">' + value.short_description + '</p></div></div>' + oldHtml);
+				
+			});
+		  }
+		});
+  }
+  
+  $("#category_1").click(function(){
+		//history museums
+		 $.ajax({
+		  url: 'https://museapp.herokuapp.com/api/v1/categories/1/museums',
+		  dataType: 'json',
+		  type: 'get',
+		  cache: false,
+		  success: function(data){
+		  $("#museumsListHistory").prepend('<h2 class=\"main_category\">Исторические:</h2>');
+			$(data).each(function(index, value){
+			  var museum = "<div class=\"card_museams\" id=\"itemHistory_"+value.id+"\"><div class=\"museums animated fadeInUp\"><div class=\"image_block_museums first_categ\" style=\"background: url("+value.photo_url+");background-size: cover;background-position: center;\"></div><div class=\"description_block_museums center\"><h3>"+value.name+"</h3><p class=\"fs_12\">"+value.short_description+"</p></div></div></div>";
+			  $("#museumsListHistory").append(museum);
+			});
+		  }
+		});
+	
+		$('#categoryContainer').addClass('hidden');
+		$('#museumsListHistory').removeClass('hidden');
+	});
+	  
+	  $("#category_2").click(function(){
+		//art museums
+		$.ajax({
+		  url: 'https://museapp.herokuapp.com/api/v1/categories/2/museums',
+		  dataType: 'json',
+		  type: 'get',
+		  cache: false,
+		  success: function(data){
+		  $("#museumsListArt").prepend('<h2 class=\"main_category\">Художественные:</h2>');
+			$(data).each(function(index, value){
+			  var museum = "<div class=\"card_museams\" id=\"itemHistory_"+value.id+"\"><div class=\"museums animated fadeInUp\"><div class=\"image_block_museums first_categ\" style=\"background: url("+value.photo_url+");background-size: cover;background-position: center;\"></div><div class=\"description_block_museums center\"><h3>"+value.name+"</h3><p class=\"fs_12\">"+value.short_description+"</p></div></div></div>";
+			  $("#museumsListArt").append(museum);
+			});
+		  }
+		});
+	
+		$('#categoryContainer').addClass('hidden');
+		$('#museumsListArt').removeClass('hidden');
+	});
+	  
+	  $("#category_3").click(function(){
+		//techniq museums
+		$.ajax({
+		  url: 'https://museapp.herokuapp.com/api/v1/categories/3/museums',
+		  dataType: 'json',
+		  type: 'get',
+		  cache: false,
+		  success: function(data){
+		  $("#museumsListTechniq").prepend('<h2 class=\"main_category\">Научно-технические:</h2>');
+			$(data).each(function(index, value){
+			  var museum = "<div class=\"card_museams\" id=\"itemHistory_"+value.id+"\"><div class=\"museums animated fadeInUp\"><div class=\"image_block_museums first_categ\" style=\"background: url("+value.photo_url+");background-size: cover;background-position: center;\"></div><div class=\"description_block_museums center\"><h3>"+value.name+"</h3><p class=\"fs_12\">"+value.short_description+"</p></div></div></div>";
+			  $("#museumsListTechniq").append(museum);
+			});
+		  }
+		});
+		
+		$('#categoryContainer').addClass('hidden');
+		$('#museumsListTechniq').removeClass('hidden');
+	});
+  
+  
 
-
-  /*
-   * Fake weather data that is presented when the user first uses the app,
-   * or when the user has not saved any cities. See startup code for more
-   * discussion.
-   */
- 
-  // TODO uncomment line below to test app with fake data
-
-
-  // TODO add startup code here
-
-  // TODO add service worker code here
 })();
