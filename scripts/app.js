@@ -157,9 +157,41 @@
 
   
   $(document).ready(function(){ 
+<<<<<<< HEAD
   
 	initStartPage();
   
+=======
+
+
+//parsing dimon api and output set of catrgory;
+    $.ajax({
+      url: 'https://museapp.herokuapp.com/api/v1/categories',
+      dataType: 'json',
+      type: 'get',
+      cache: false,
+      success: function(data){
+        $(data).each(function(index, value){
+          var name = 'Название';
+          var oldHtml = $('#category').html();
+          var category = $('#category').html('<div class="category" id="'+ value.id +'"><div class="image_block" '+
+            'style="background: url('+value.photo_url+');'+
+            'background-size: cover;background-position: center center;"></div>'+
+            '<div class="description_block center"> <h3>'+ 
+             name +'</h3> <p class="fs_12">' + value.short_description + '</p></div></div>' + oldHtml);
+        });
+      }
+    });
+
+      $('#1').click(function(){
+        console.log('!!!');
+      $('#listHistory').show();
+      $('#main_page').hide();
+    });
+
+
+
+>>>>>>> a63c966629c2942afaa3ff0573b81f3b6fc21bf6
   });
 
   function initStartPage(){
