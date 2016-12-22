@@ -109,16 +109,20 @@
     </div>
   </div>
 
-<!--   <div class="loader">
+ <div class="loader">
     <svg viewBox="0 0 32 32" width="32" height="32">
       <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
     </svg>
-  </div> -->
+  </div> 
 
   <!-- Uncomment the line below when ready to test with fake data -->
   <script src="scripts/jquery.min.js"></script>
 
   <script src="scripts/app.js" async></script>
 
+<script>
+   
+  $(window).on('load', function() {$(".loader").delay(100).fadeOut(250);});
+</script>
 </body>
 </html>
