@@ -105,6 +105,7 @@ background-image: url("http://podrobnosti.ua/media/pictures/2016/5/18/thumbs/740
     font-size: 12px;
     text-align: left;
     padding-left: 10px;
+    margin: 5px 0px;
   }
   .main_category{
     margin: 8px 0px;
@@ -123,6 +124,10 @@ background-image: url("http://podrobnosti.ua/media/pictures/2016/5/18/thumbs/740
   }
 
 .main_picture {}
+
+.description_block_museums>h3{
+      margin: 5px 0px;
+}
 
 .main_title{
   color: white;

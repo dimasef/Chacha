@@ -157,41 +157,19 @@
 
   
   $(document).ready(function(){ 
-<<<<<<< HEAD
+
   
 	initStartPage();
   
-=======
+
 
 
 //parsing dimon api and output set of catrgory;
-    $.ajax({
-      url: 'https://museapp.herokuapp.com/api/v1/categories',
-      dataType: 'json',
-      type: 'get',
-      cache: false,
-      success: function(data){
-        $(data).each(function(index, value){
-          var name = 'Название';
-          var oldHtml = $('#category').html();
-          var category = $('#category').html('<div class="category" id="'+ value.id +'"><div class="image_block" '+
-            'style="background: url('+value.photo_url+');'+
-            'background-size: cover;background-position: center center;"></div>'+
-            '<div class="description_block center"> <h3>'+ 
-             name +'</h3> <p class="fs_12">' + value.short_description + '</p></div></div>' + oldHtml);
-        });
-      }
-    });
-
-      $('#1').click(function(){
-        console.log('!!!');
-      $('#listHistory').show();
-      $('#main_page').hide();
-    });
+   
 
 
 
->>>>>>> a63c966629c2942afaa3ff0573b81f3b6fc21bf6
+
   });
 
   function initStartPage(){
@@ -216,7 +194,7 @@
 		});
   }
   
-  $("#category_1").click(function(){
+  $(document).on('click', '#category_1', function(){
 		//history museums
 		 $.ajax({
 		  url: 'https://museapp.herokuapp.com/api/v1/categories/1/museums',
@@ -226,7 +204,7 @@
 		  success: function(data){
 		  $("#museumsListHistory").prepend('<h2 class=\"main_category\">Исторические:</h2>');
 			$(data).each(function(index, value){
-			  var museum = "<div class=\"card_museams\" id=\"itemHistory_"+value.id+"\"><div class=\"museums animated fadeInUp\"><div class=\"image_block_museums first_categ\" style=\"background: url("+value.photo_url+");background-size: cover;background-position: center;\"></div><div class=\"description_block_museums center\"><h3>"+value.name+"</h3><p class=\"fs_12\">"+value.short_description+"</p></div></div></div>";
+			  var museum = "<div class=\"card_museams animated fadeInUp\" id=\"itemHistory_"+value.id+"\"><div class=\"museums\"><div class=\"image_block_museums first_categ\" style=\"background: url("+value.photo_url+");background-size: cover;background-position: center;\"></div><div class=\"description_block_museums center\"><h3>"+value.name+"</h3><p class=\"fs_12\">"+value.short_description+"</p></div></div></div>";
 			  $("#museumsListHistory").append(museum);
 			});
 		  }
@@ -236,7 +214,7 @@
 		$('#museumsListHistory').removeClass('hidden');
 	});
 	  
-	  $("#category_2").click(function(){
+	  $(document).on('click', '#category_2', function(){
 		//art museums
 		$.ajax({
 		  url: 'https://museapp.herokuapp.com/api/v1/categories/2/museums',
@@ -246,7 +224,7 @@
 		  success: function(data){
 		  $("#museumsListArt").prepend('<h2 class=\"main_category\">Художественные:</h2>');
 			$(data).each(function(index, value){
-			  var museum = "<div class=\"card_museams\" id=\"itemHistory_"+value.id+"\"><div class=\"museums animated fadeInUp\"><div class=\"image_block_museums first_categ\" style=\"background: url("+value.photo_url+");background-size: cover;background-position: center;\"></div><div class=\"description_block_museums center\"><h3>"+value.name+"</h3><p class=\"fs_12\">"+value.short_description+"</p></div></div></div>";
+			  var museum = "<div class=\"card_museams animated fadeInUp\" id=\"itemHistory_"+value.id+"\"><div class=\"museums\"><div class=\"image_block_museums first_categ\" style=\"background: url("+value.photo_url+");background-size: cover;background-position: center;\"></div><div class=\"description_block_museums center\"><h3>"+value.name+"</h3><p class=\"fs_12\">"+value.short_description+"</p></div></div></div>";
 			  $("#museumsListArt").append(museum);
 			});
 		  }
@@ -256,7 +234,7 @@
 		$('#museumsListArt').removeClass('hidden');
 	});
 	  
-	  $("#category_3").click(function(){
+	  $(document).on('click', '#category_3', function(){
 		//techniq museums
 		$.ajax({
 		  url: 'https://museapp.herokuapp.com/api/v1/categories/3/museums',
@@ -266,7 +244,7 @@
 		  success: function(data){
 		  $("#museumsListTechniq").prepend('<h2 class=\"main_category\">Научно-технические:</h2>');
 			$(data).each(function(index, value){
-			  var museum = "<div class=\"card_museams\" id=\"itemHistory_"+value.id+"\"><div class=\"museums animated fadeInUp\"><div class=\"image_block_museums first_categ\" style=\"background: url("+value.photo_url+");background-size: cover;background-position: center;\"></div><div class=\"description_block_museums center\"><h3>"+value.name+"</h3><p class=\"fs_12\">"+value.short_description+"</p></div></div></div>";
+			  var museum = "<div class=\"card_museams animated fadeInUp\" id=\"itemHistory_"+value.id+"\"><div class=\"museums\"><div class=\"image_block_museums first_categ\" style=\"background: url("+value.photo_url+");background-size: cover;background-position: center;\"></div><div class=\"description_block_museums center\"><h3>"+value.name+"</h3><p class=\"fs_12\">"+value.short_description+"</p></div></div></div>";
 			  $("#museumsListTechniq").append(museum);
 			});
 		  }
