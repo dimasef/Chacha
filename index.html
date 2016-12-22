@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UA MUSEUMS</title>
+  <link rel="stylesheet" type="text/css" href="styles/inline.css">
+   <link rel="stylesheet" type="text/css" href="styles/animate.min.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="header__title">UA MUSEUMS</h1>
+    <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
+    <button id="butAdd" class="headerButton" aria-label="Add"></button>
+  </header>
+
+  <main class="main">
+
+  
+    <div id="main_page">
+    <div class="main_picture">
+      <div class="darker_background">
+        <h1 class="main_title">Самые необычные и интересные музеи Украины</h1>
+      </div>
+    </div>
+    <div class="card cardTemplate weather-forecast">
+   
+		<div id="categoryContainer">
+		 <h2 class="main_category">Основные категории музеев:</h2>
+		 <div id="category"></div>
+		</div>
+      <div class="hidden" id="museumsListHistory"></div>
+      <div class="hidden" id="museumsListArt"></div>
+      <div class="hidden" id="museumsListTechniq"></div>
+      
+  </div>
+ 
+  </div>
+</main>
+
+  <div class="dialog-container">
+    <div class="dialog">
+      <div class="dialog-title">Add new city</div>
+      <div class="dialog-body">
+        <select id="selectCityToAdd">
+          <!-- Values map to Yahoo Weather API Where On Earth Identifiers (WOEIDs).
+               https://developer.yahoo.com/weather/documentation.html#req -->
+          <option value="2357536">Austin, TX</option>
+          <option value="2367105">Boston, MA</option>
+          <option value="2379574">Chicago, IL</option>
+          <option value="2459115">New York, NY</option>
+          <option value="2475687">Portland, OR</option>
+          <option value="2487956">San Francisco, CA</option>
+          <option value="2490383">Seattle, WA</option>
+        </select>
+      </div>
+      <div class="dialog-buttons">
+        <button id="butAddCity" class="button">Add</button>
+        <button id="butAddCancel" class="button">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+ <div class="loader">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div> 
+
+  <!-- Uncomment the line below when ready to test with fake data -->
+  <script src="scripts/jquery.min.js"></script>
+
+  <script src="scripts/app.js" async></script>
+
+<script>
+   
+  $(window).on('load', function() {$(".loader").delay(100).fadeOut(250);});
+</script>
+</body>
+</html>
